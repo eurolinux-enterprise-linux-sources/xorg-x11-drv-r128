@@ -5,7 +5,7 @@
 Summary:   Xorg X11 r128 video driver
 Name:      xorg-x11-drv-r128
 Version:   6.8.1
-Release:   2%{?dist}
+Release:   3%{?dist}
 URL:       http://www.x.org
 License:   MIT
 Group:     User Interface/X Hardware Support
@@ -25,7 +25,8 @@ BuildRequires: automake autoconf libtool pkgconfig
 BuildRequires: xorg-x11-util-macros >= 1.1.5
 
 Requires:  hwdata
-Requires:  xorg-x11-server-Xorg >= 1.4.99.1
+Requires:  Xorg %(xserver-sdk-abi-requires ansic)
+Requires:  Xorg %(xserver-sdk-abi-requires videodrv)
 
 %description 
 X.Org X11 r128 video driver.
@@ -60,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man4/r128.4*
 
 %changelog
+* Tue Jun 28 2011 Ben Skeggs <bskeggs@redhat.com> - 6.8.1-3
+- rebuild for 6.2 server rebase
+
 * Fri Sep 18 2009 Adam Jackson <ajax@redhat.com> 6.8.1-2
 - r128-6.8.1-panel-hack.patch: Set sync ranges based on panel size.
 
