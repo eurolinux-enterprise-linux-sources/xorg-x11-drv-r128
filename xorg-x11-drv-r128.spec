@@ -7,8 +7,8 @@
 
 Summary:   Xorg X11 r128 video driver
 Name:      xorg-x11-drv-r128
-Version:   6.9.1
-Release:   8%{?gitdate:.%{gitdate}git%{gitversion}}%{?dist}
+Version:   6.10.0
+Release:   1%{?gitdate:.%{gitdate}git%{gitversion}}%{?dist}
 URL:       http://www.x.org
 License:   MIT
 Group:     User Interface/X Hardware Support
@@ -21,7 +21,6 @@ Source2:    commitid
 Source0:   http://www.x.org/pub/individual/driver/%{tarball}-%{version}.tar.bz2
 %endif
 
-Patch0:	    r128-6.8.1-panel-hack.patch
 
 ExcludeArch: s390 s390x
 
@@ -40,7 +39,6 @@ X.Org X11 r128 video driver.
 
 %prep
 %setup -q -n %{tarball}-%{?gitdate:%{gitdate}}%{!?gitdate:%{version}}
-%patch0 -p1 -b .panel
 
 %build
 autoreconf -f -v --install || exit 1
@@ -64,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man4/r128.4*
 
 %changelog
+* Wed Nov 11 2015 Adam Jackson <ajax@redhat.com> 6.10.0-1
+- r128 6.10.1
+
 * Mon Jul 28 2014 Adam Jackson <ajax@redhat.com> 6.9.1-8
 - Fix dist tag
 
