@@ -4,8 +4,8 @@
 
 Summary:   Xorg X11 r128 video driver
 Name:      xorg-x11-drv-r128
-Version:   6.8.1
-Release:   3%{?dist}
+Version:   6.9.1
+Release:   1%{?dist}
 URL:       http://www.x.org
 License:   MIT
 Group:     User Interface/X Hardware Support
@@ -55,12 +55,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc README.r128
 %{driverdir}/r128_drv.so
 %{_datadir}/hwdata/videoaliases/r128.xinf
 %{_mandir}/man4/r128.4*
 
 %changelog
+* Fri Sep 28 2012 Dave Airlie <airlied@redhat.com> 6.9.1-1
+- bump to latest upstream release - fixes dri1 via exa
+
+* Wed Aug 22 2012 airlied@redhat.com - 6.8.4-2
+- rebuild for server ABI requires
+
+* Mon Aug 06 2012 Dave Airlie <airlied@redhat.com> 6.8.4-1
+- upstream 6.8.4 release for rebase
+
 * Tue Jun 28 2011 Ben Skeggs <bskeggs@redhat.com> - 6.8.1-3
 - rebuild for 6.2 server rebase
 
